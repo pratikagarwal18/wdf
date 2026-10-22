@@ -1,0 +1,54 @@
+[
+    {
+        "id": "STU_6533a101",
+        "timestamp": "2026-10-21 10:15:20",
+        "full_name": "Aarav Sharma",
+        "enrollment_id": "21BCE1001",
+        "email": "aarav.sharma@univ.edu",
+        "mobile": "9876543210",
+        "course": "Computer Science",
+        "year": "3",
+        "gender": "Male",
+        "dob": "2003-05-14",
+        "address": "42 Park Street, Mumbai"
+    },
+    {
+        "id": "STU_6533a202",
+        "timestamp": "2026-10-21 11:30:45",
+        "full_name": "Priya Patel",
+        "enrollment_id": "22BIT2045",
+        "email": "priya.patel@univ.edu",
+        "mobile": "9823456789",
+        "course": "Information Technology",
+        "year": "2",
+        "gender": "Female",
+        "dob": "2004-09-21",
+        "address": "15 Lotus Avenue, Ahmedabad"
+    },
+    {
+        "id": "STU_6533a303",
+        "timestamp": "2026-10-21 12:05:10",
+        "full_name": "Rohan Gupta",
+        "enrollment_id": "20BEC3012",
+        "email": "rohan.gupta@univ.edu",
+        "mobile": "9711223344",
+        "course": "Electronics",
+        "year": "4",
+        "gender": "Male",
+        "dob": "2002-12-03",
+        "address": "78 MG Road, Bengaluru"
+    },
+    {
+        "id": "STU_6ad8a31274bb6",
+        "timestamp": "2026-10-21 13:33:38",
+        "full_name": "Test Integration User",
+        "enrollment_id": "25INT2641",
+        "email": "integration_4452@univ.edu",
+        "mobile": "9876543210",
+        "course": "Computer Science",
+        "year": "2",
+        "gender": "Male",
+        "dob": null,
+        "address": null
+    }
+]
