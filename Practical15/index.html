@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Academic &amp; Student Management Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --brand-dark: #0f172a;
+            --brand-blue: #2563eb;
+            --brand-indigo: #4f46e5;
+            --card-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav {
+            background: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--brand-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand span {
+            color: var(--brand-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-blue);
+        }
+
+        .btn-nav {
+            background: var(--brand-blue);
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: #1d4ed8 !important;
+        }
+
+        .hero-banner {
+            max-width: 1100px;
+            margin: 36px auto 28px auto;
+            padding: 40px 32px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            border-radius: 18px;
+            color: #ffffff;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.25);
+        }
+
+        .hero-banner h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            margin: 0 0 12px 0;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-banner p {
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 24px auto;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            background: #38bdf8;
+            color: #0c4a6e;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-hero:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        .btn-hero-alt {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: background 0.2s;
+        }
+
+        .btn-hero-alt:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.45rem;
+            margin: 32px 0 18px 0;
+            font-weight: 700;
+            color: var(--brand-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 20px;
+        }
+
+        .hub-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--brand-blue);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--brand-blue);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 12px;
+        }
+
+        .hub-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+            color: var(--brand-dark);
+        }
+
+        .hub-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+            flex-grow: 1;
+        }
+
+        .card-btn {
+            display: block;
+            text-align: center;
+            background: var(--brand-blue);
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .card-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .card-btn-dark {
+            background: #0f172a;
+        }
+
+        .card-btn-dark:hover {
+            background: #1e293b;
+        }
+
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid var(--card-border);
+            padding: 24px 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.88rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-nav a:hover {
+            color: var(--brand-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-nav">
+        <a href="index.html" class="brand">
+            &#127891; StudentHub <span>Portal</span>
+        </a>
+        <nav class="nav-links">
+            <a href="courses.html">Courses</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="result.html">Results</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.php">Sign In</a>
+            <a href="register.php" class="btn-nav">Register</a>
+        </nav>
+    </header>
+
+    <div class="hero-banner">
+        <h1>StudentHub Integrated Academic Portal</h1>
+        <p>
+            A unified web platform featuring Student Directory CRUD, Event Management with Poster Upload, Role-Based Access Control, and Fetch API asynchronous operations.
+        </p>
+        <div class="hero-actions">
+            <a href="login.php" class="btn-hero">Access Portal &rarr;</a>
+            <a href="admin_dashboard.php?login_as=ADMIN" class="btn-hero-alt">Admin Console</a>
+            <a href="dashboard.php" class="btn-hero-alt">Student Portal</a>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <h2 class="section-title">&#128640; Core Application Modules</h2>
+
+        <div class="grid-cards">
+            
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Administrative Hub</span>
+                    <h3>Admin Console &amp; Management</h3>
+                    <p>
+                        Complete dashboard with real-time statistics, Student Management CRUD, Event Management with poster image upload, and Security Audit Logs.
+                    </p>
+                </div>
+                <a href="admin_dashboard.php?login_as=ADMIN" class="card-btn card-btn-dark">Open Admin Console &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Student Experience</span>
+                    <h3>Student Portal &amp; Academic Hub</h3>
+                    <p>
+                        Personalized student dashboard showing enrolled courses, session activity timer, and instant campus navigation links.
+                    </p>
+                </div>
+                <a href="dashboard.php" class="card-btn">Open Student Portal &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Faculty Tools</span>
+                    <h3>Faculty Management Roster</h3>
+                    <p>
+                        Faculty portal displaying departmental student rosters, enrollment details, and course management.
+                    </p>
+                </div>
+                <a href="faculty_dashboard.php" class="card-btn">Open Faculty Portal &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Account Security</span>
+                    <h3>User Registration</h3>
+                    <p>
+                        Secure user enrollment form with server-side validation, duplicate check, and Bcrypt password hashing.
+                    </p>
+                </div>
+                <a href="register.php" class="card-btn">Register New User &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Authentication</span>
+                    <h3>Sign In &amp; Role Redirection</h3>
+                    <p>
+                        Secure authentication with session hijacking defense, timeout protection, and role-based access redirection.
+                    </p>
+                </div>
+                <a href="login.php" class="card-btn">Log In &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Database</span>
+                    <h3>Database Setup &amp; Migration</h3>
+                    <p>
+                        One-click schema setup and sample data initialization for MySQL in XAMPP.
+                    </p>
+                </div>
+                <a href="db_setup.php" class="card-btn">Run DB Setup &rarr;</a>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">&#128218; Campus Resources</h2>
+
+        <div class="grid-cards">
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Academics</span>
+                    <h3>Course Catalog</h3>
+                    <p>Explore offered engineering and technology courses, syllabi, credits, and course coordinators.</p>
+                </div>
+                <a href="courses.html" class="card-btn">View Courses &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Attendance</span>
+                    <h3>Attendance Tracking</h3>
+                    <p>View semester subject-wise attendance percentages, monthly summaries, and eligibility criteria.</p>
+                </div>
+                <a href="attendance.html" class="card-btn">View Attendance &rarr;</a>
+            </div>
+
+            <div class="hub-card">
+                <div>
+                    <span class="card-tag">Assessments</span>
+                    <h3>Exam Results</h3>
+                    <p>Access semester grade cards, credits earned, and cumulative grade point averages (CGPA).</p>
+                </div>
+                <a href="result.html" class="card-btn">View Results &rarr;</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="result.html">Results</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="contact.html">Contact</a>
+            <a href="db_setup.php">Database</a>
+        </div>
+        <div>
+            &copy; 2026 StudentHub Academic Portal &bull; All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+</html>
