@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "question": "How do I register?",
+    "answer": "Open the registration page, complete the required fields and accept the terms.",
+    "category": "Registration"
+  },
+  {
+    "id": 2,
+    "question": "How can I reset my password?",
+    "answer": "Use the password reset option or contact the portal administrator.",
+    "category": "Account"
+  },
+  {
+    "id": 3,
+    "question": "Where can I view my courses?",
+    "answer": "Select Courses from the navigation menu after signing in.",
+    "category": "Courses"
+  },
+  {
+    "id": 4,
+    "question": "How is attendance calculated?",
+    "answer": "Attendance is based on the classes recorded by your department.",
+    "category": "Attendance"
+  },
+  {
+    "id": 5,
+    "question": "Where are exam results published?",
+    "answer": "Open the Results page when results have been released.",
+    "category": "Results"
+  },
+  {
+    "id": 6,
+    "question": "How do I submit an assignment?",
+    "answer": "Open Assignments and follow the instructions for the selected task.",
+    "category": "Assignments"
+  },
+  {
+    "id": 7,
+    "question": "Who can update student details?",
+    "answer": "Contact the student office or authorized portal administrator.",
+    "category": "Account"
+  },
+  {
+    "id": 8,
+    "question": "Can I change my email address?",
+    "answer": "Request an update through the student office so your account stays secure.",
+    "category": "Account"
+  },
+  {
+    "id": 9,
+    "question": "Where can I find college events?",
+    "answer": "Use the Events section on the Practical 6 data page.",
+    "category": "Events"
+  },
+  {
+    "id": 10,
+    "question": "How do I contact support?",
+    "answer": "Use the Contact page and provide your student ID and query.",
+    "category": "Support"
+  },
+  {
+    "id": 11,
+    "question": "What should I do if the portal is not loading?",
+    "answer": "Check your connection, refresh the page and try again.",
+    "category": "Technical"
+  },
+  {
+    "id": 12,
+    "question": "Can I use the portal on mobile?",
+    "answer": "Yes, the pages are designed to adapt to smaller screens.",
+    "category": "Technical"
+  },
+  {
+    "id": 13,
+    "question": "How do I check my semester?",
+    "answer": "Your semester information is shown in your student profile.",
+    "category": "Profile"
+  },
+  {
+    "id": 14,
+    "question": "Who approves payment status?",
+    "answer": "Payment status is reviewed by the authorized administrator.",
+    "category": "Payments"
+  },
+  {
+    "id": 15,
+    "question": "How can I report incorrect information?",
+    "answer": "Send the details through the Contact page for correction.",
+    "category": "Support"
+  }
+]

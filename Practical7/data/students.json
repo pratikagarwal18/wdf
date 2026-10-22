@@ -1,0 +1,107 @@
+[
+  {
+    "id": "STU001",
+    "name": "Aarav Shah",
+    "course": "Computer Science",
+    "year": "3",
+    "email": "aarav.shah@example.com"
+  },
+  {
+    "id": "STU002",
+    "name": "Diya Patel",
+    "course": "Information Technology",
+    "year": "2",
+    "email": "diya.patel@example.com"
+  },
+  {
+    "id": "STU003",
+    "name": "Vivaan Mehta",
+    "course": "Computer Science",
+    "year": "4",
+    "email": "vivaan.mehta@example.com"
+  },
+  {
+    "id": "STU004",
+    "name": "Anaya Desai",
+    "course": "Electronics",
+    "year": "1",
+    "email": "anaya.desai@example.com"
+  },
+  {
+    "id": "STU005",
+    "name": "Reyansh Joshi",
+    "course": "Mechanical",
+    "year": "3",
+    "email": "reyansh.joshi@example.com"
+  },
+  {
+    "id": "STU006",
+    "name": "Isha Trivedi",
+    "course": "Information Technology",
+    "year": "2",
+    "email": "isha.trivedi@example.com"
+  },
+  {
+    "id": "STU007",
+    "name": "Advik Parmar",
+    "course": "Civil",
+    "year": "4",
+    "email": "advik.parmar@example.com"
+  },
+  {
+    "id": "STU008",
+    "name": "Sara Shah",
+    "course": "Computer Science",
+    "year": "1",
+    "email": "sara.shah@example.com"
+  },
+  {
+    "id": "STU009",
+    "name": "Arjun Patel",
+    "course": "Electronics",
+    "year": "3",
+    "email": "arjun.patel@example.com"
+  },
+  {
+    "id": "STU010",
+    "name": "Myra Mehta",
+    "course": "Mechanical",
+    "year": "2",
+    "email": "myra.mehta@example.com"
+  },
+  {
+    "id": "STU011",
+    "name": "Kabir Desai",
+    "course": "Information Technology",
+    "year": "4",
+    "email": "kabir.desai@example.com"
+  },
+  {
+    "id": "STU012",
+    "name": "Aadhya Joshi",
+    "course": "Civil",
+    "year": "1",
+    "email": "aadhya.joshi@example.com"
+  },
+  {
+    "id": "STU013",
+    "name": "Krish Trivedi",
+    "course": "Computer Science",
+    "year": "2",
+    "email": "krish.trivedi@example.com"
+  },
+  {
+    "id": "STU014",
+    "name": "Pari Parmar",
+    "course": "Electronics",
+    "year": "4",
+    "email": "pari.parmar@example.com"
+  },
+  {
+    "id": "STU015",
+    "name": "Dhruv Shah",
+    "course": "Mechanical",
+    "year": "1",
+    "email": "dhruv.shah@example.com"
+  }
+]

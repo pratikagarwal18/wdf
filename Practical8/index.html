@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Academic & Event Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-section {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 36px 30px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+        }
+        .practicals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .practical-card {
+            background: #fbf9f4;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 22px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .practical-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--blue);
+            box-shadow: 0 10px 20px rgba(53, 71, 214, 0.08);
+        }
+        .practical-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .card-link-btn {
+            display: inline-block;
+            margin-top: 14px;
+            background: var(--blue);
+            color: #ffffff;
+            padding: 9px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .card-link-btn:hover {
+            background: var(--navy);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>StudentHub Academic &amp; Laboratory Portal</h1>
+
+    <div style="text-align: center; padding: 10px 0; background: #ffffff; border-bottom: 1px solid var(--line);">
+        <nav style="display: inline-flex; gap: 16px; flex-wrap: wrap;">
+            <a href="dashboard.html">Dashboard</a> |
+            <a href="profile.html">Profile</a> |
+            <a href="courses.html">Courses</a> |
+            <a href="register.php" style="font-weight: 600; color: #2563eb;">Student Registration (MySQL)</a> |
+            <a href="practical8_test.php" style="font-weight: bold; color: var(--blue);">Practical 8 (MySQL &amp; PDO)</a> |
+            <a href="login.html">Login</a>
+        </nav>
+    </div>
+
+    <main class="hero-section">
+        <h2 style="margin-top: 0;">Welcome to StudentHub</h2>
+        <p style="color: var(--ink-soft); font-size: 1.05rem;">
+            A centralized student management and campus event registration platform built for Web Development Frameworks practical demonstrations.
+        </p>
+
+        <h3 style="margin-top: 32px; font-size: 1.25rem;">Course Practicals &amp; Demonstrations</h3>
+
+        <div class="practicals-grid">
+            <!-- Practical 8 Card -->
+            <div class="practical-card" style="border: 2px solid var(--blue); background: #ffffff;">
+                <div>
+                    <span class="practical-badge" style="background: #dbeafe; color: #1e40af;">Current Lab: Practical 8</span>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.15rem; color: var(--navy);">MySQL Schema, PDO &amp; Stored Procedures</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5;">
+                        Normalized 3NF relational schema (<code>students</code>, <code>events</code>, <code>registrations</code>), secure PDO connectivity with native prepared statements, SQL injection defense, and stored procedures with transaction handling.
+                    </p>
+                </div>
+                <div>
+                    <a href="practical8_test.php" class="card-link-btn" style="width: 100%; box-sizing: border-box;">Open Practical 8 Demo &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Practical 7 Card -->
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge">Practical 7</span>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.15rem; color: var(--navy);">Form Processing &amp; JSON Storage</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5;">
+                        Server-side input validation, sanitization, CSRF token defense, and atomic JSON persistence with <code>view_records.php</code> viewer.
+                    </p>
+                </div>
+                <div>
+                    <a href="practical7_register.php" class="card-link-btn" style="background: var(--navy-deep); width: 100%; box-sizing: border-box;">Open Practical 7 &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Practical 6 Card -->
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #fef3c7; color: #92400e;">Practical 6</span>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.15rem; color: var(--navy);">AJAX &amp; Client-Side Data Rendering</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5;">
+                        Dynamic asynchronous content retrieval, DOM manipulation, and interactive table rendering without full page reloads.
+                    </p>
+                </div>
+                <div>
+                    <a href="practical6.html" class="card-link-btn" style="background: #475569; width: 100%; box-sizing: border-box;">Open Practical 6 &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 18px; background: #f8fafc; border-radius: 10px; border: 1px dashed var(--line); font-size: 0.9rem;">
+            <strong>Quick Submission Helper:</strong>
+            To complete Practical 8 post-lab submission, open <a href="practical8_test.php">Practical 8</a>, verify the active connection status card, and take your screenshot. SQL dump is saved as <a href="studenthub.sql"><code>studenthub.sql</code></a> and connection script is <a href="db.php"><code>db.php</code></a>.
+        </div>
+    </main>
+
+</body>
+</html>
