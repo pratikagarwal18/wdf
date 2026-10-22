@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 9: StudentHub - Secure User Registration &amp; Password Hashing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-section {
+            max-width: 1040px;
+            margin: 40px auto;
+            padding: 36px 32px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+        }
+        .practicals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .practical-card {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 24px;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .practical-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue);
+            box-shadow: 0 12px 24px rgba(53, 71, 214, 0.1);
+        }
+        .practical-card.featured {
+            border: 2px solid var(--blue);
+            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+            box-shadow: 0 8px 20px rgba(53, 71, 214, 0.08);
+        }
+        .practical-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .card-link-btn {
+            display: inline-block;
+            margin-top: 14px;
+            background: var(--blue);
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .card-link-btn:hover {
+            background: var(--navy);
+            transform: translateY(-1px);
+        }
+        .feature-pill {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 0.78rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin: 2px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>StudentHub Academic &amp; Laboratory Portal</h1>
+
+    <div style="text-align: center; padding: 12px 0; background: #ffffff; border-bottom: 1px solid var(--line);">
+        <nav style="display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <a href="dashboard.php">Dashboard</a> |
+            <a href="practical6.html">Practical 6 (JSON Explorer)</a> |
+            <a href="practical7_register.php">Practical 7 (JSON Forms)</a> |
+            <a href="practical8_test.php">Practical 8 (MySQL &amp; PDO)</a> |
+            <a href="register.php">Practical 9 (Registration)</a> |
+            <a href="login.php">Practical 10 (Login/RBAC)</a> |
+            <a href="practical11_students.php">Practical 11 (Students CRUD)</a> |
+            <a href="practical12_events.php" style="font-weight: 800; color: #4338ca;">Practical 12 (Events CRUD &amp; Poster Upload)</a> |
+            <a href="practical12_test.php" style="font-weight: 700; color: #0284c7;">Practical 12 Test Suite</a> |
+            <a href="db_setup.php">DB Setup</a>
+        </nav>
+    </div>
+
+    <main class="hero-section">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+            <div>
+                <span class="practical-badge" style="background: #e0e7ff; color: #4338ca; font-weight: 800;">
+                    Latest Laboratory: Practical 12
+                </span>
+                <h2 style="margin: 6px 0 10px 0; background: none; color: var(--navy); text-align: left; padding: 0; font-size: 1.85rem; font-family: 'Outfit', sans-serif;">
+                    Practical 12: Event Management CRUD with Poster Upload &amp; Validation
+                </h2>
+                <p style="color: var(--ink-soft); font-size: 1.05rem; max-width: 800px; margin: 0; line-height: 1.6;">
+                    Comprehensive administrative event management: add, view, update, delete, and upload event posters with strict server-side <strong>file type (JPG, PNG, WEBP)</strong> and <strong>file size (&le; 2MB)</strong> validation via <code>finfo</code> magic bytes and <code>getimagesize</code>.
+                </p>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="practical12_events.php" class="card-link-btn" style="padding: 12px 24px; font-size: 1rem; background: #4338ca;">
+                    Launch Events CRUD &rarr;
+                </a>
+                <a href="practical12_test.php" class="card-link-btn" style="padding: 12px 20px; font-size: 1rem; background: #0284c7;">
+                    Test Suite &rarr;
+                </a>
+            </div>
+        </div>
+
+        <div class="practicals-grid">
+            <div class="practical-card featured" style="border: 2px solid #4338ca;">
+                <div>
+                    <span class="practical-badge" style="background: #e0e7ff; color: #4338ca;">Core Practical 12 Module</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: var(--navy); padding: 0;">
+                        Event Management CRUD with Poster Upload &amp; Validation
+                    </h3>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; margin-bottom: 14px;">
+                        Enterprise event portal built with Object-Oriented MySQLi and validated file uploads:
+                    </p>
+                    <ul style="margin: 0 0 16px 18px; padding: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+                        <li><strong>Full CRUD:</strong> Parameterized SELECT, INSERT, UPDATE, and DELETE operations.</li>
+                        <li><strong>Poster Upload &amp; Validation:</strong> Max 2MB size limit, extension whitelist, and MIME magic-byte verification.</li>
+                        <li><strong>Safe Storage:</strong> Sanitized unique file generation with automated orphan file cleanup on update/delete.</li>
+                        <li><strong>Interactive UI:</strong> Grid/Table views, category &amp; status filtering, poster lightbox, and delete confirmation modal.</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <a href="practical12_events.php" class="card-link-btn" style="flex: 1; box-sizing: border-box; text-align: center; background: #4338ca;">
+                        Open Events Portal &rarr;
+                    </a>
+                    <a href="practical12_test.php" class="card-link-btn" style="flex: 1; box-sizing: border-box; text-align: center; background: #0284c7;">
+                        Run Test Suite &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #dbeafe; color: #1e40af;">Core Practical 11 Module</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: var(--navy); padding: 0;">
+                        Student Management CRUD &amp; Dynamic Filter Portal
+                    </h3>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; margin-bottom: 14px;">
+                        Enterprise data management module built with Object-Oriented MySQLi:
+                    </p>
+                    <ul style="margin: 0 0 16px 18px; padding: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+                        <li><strong>Full CRUD:</strong> Parameterized SELECT, INSERT, UPDATE, and DELETE operations.</li>
+                        <li><strong>Multi-Field Search:</strong> Instant parameterized pattern matching by Name, Email, Roll No, and Course.</li>
+                        <li><strong>Cascading Filters:</strong> Filter by Department, Course, and Semester (1–8) with pagination.</li>
+                        <li><strong>Delete Confirmation:</strong> Interactive modal verification before record execution.</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <a href="practical11_students.php" class="card-link-btn" style="flex: 1; box-sizing: border-box; text-align: center; background: #2563eb;">
+                        Open Student CRUD Portal &rarr;
+                    </a>
+                    <a href="practical11_test.php" class="card-link-btn" style="flex: 1; box-sizing: border-box; text-align: center; background: #0284c7;">
+                        Run Test Suite &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div class="practical-card">
+                    <span class="practical-badge" style="background: #dbeafe; color: #1e40af;">Core Practical 10 Module</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: var(--navy); padding: 0;">
+                        Secure Login, Logout &amp; RBAC Portal
+                    </h3>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; margin-bottom: 14px;">
+                        Enterprise-grade session authentication architecture:
+                    </p>
+                    <ul style="margin: 0 0 16px 18px; padding: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+                        <li><strong>Session Hardening:</strong> <code>HttpOnly</code>, <code>SameSite=Lax</code>, <code>use_strict_mode=1</code>.</li>
+                        <li><strong>Session Fixation Defense:</strong> <code>session_regenerate_id(true)</code> on privilege changes.</li>
+                        <li><strong>Role-Based Access Control:</strong> Strict redirection for <code>ADMIN</code>, <code>FACULTY</code>, and <code>STUDENT</code>.</li>
+                        <li><strong>Inactivity Timeout:</strong> Automatic termination after idle window with visual countdown.</li>
+                        <li><strong>Intermediate Extension:</strong> Relational <code>last_login</code> timestamp tracker.</li>
+                        </ul>
+                </div>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <a href="login.php" class="card-link-btn" style="flex: 1; box-sizing: border-box; text-align: center;">
+                        Sign In Now &rarr;
+                    </a>
+                    <a href="practical10_test.php" class="card-link-btn" style="background: #0f172a; flex: 1; box-sizing: border-box; text-align: center;">
+                        Post-Lab Report &rarr;
+                    </a>
+                </div>
+            </div>
+            
+            <div class="practical-card featured">
+                <div>
+                    <span class="practical-badge" style="background: #dbeafe; color: #1e40af;">Core Practical 9 Module</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: var(--navy); padding: 0;">
+                        Secure Registration &amp; Database Insert
+                    </h3>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; margin-bottom: 14px;">
+                        Interactive registration portal featuring:
+                    </p>
+                    <ul style="margin: 0 0 16px 18px; padding: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+                        <li><strong>Password Hashing:</strong> Bcrypt (<code>PASSWORD_BCRYPT</code>, cost 12) with salt generation.</li>
+                        <li><strong>Duplicate Checks:</strong> Real-time AJAX + MySQLi prepared statement uniqueness verification.</li>
+                        <li><strong>Synchronous Validation:</strong> Consistent regex, length, and format rules on client &amp; server.</li>
+                        <li><strong>Prepared Statements:</strong> 100% parameterized MySQLi queries (Intermediate Extension).</li>
+                        </ul>
+                    <div style="margin-top: 10px;">
+                        <span class="feature-pill">PHP 8+</span>
+                        <span class="feature-pill">MySQLi OOP</span>
+                        <span class="feature-pill">password_hash()</span>
+                        <span class="feature-pill">AJAX Duplicate Check</span>
+                        </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="register.php" class="card-link-btn" style="width: 100%; box-sizing: border-box;">
+                        Open Secure Registration Form &rarr;
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #fef3c7; color: #92400e;">Authentication Verifier</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: var(--navy); padding: 0;">
+                        Login &amp; Password Verification
+                    </h3>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; margin-bottom: 14px;">
+                        Demonstrates the complete password authentication lifecycle by verifying user input against the stored database Bcrypt hash via <code>password_verify()</code>.
+                    </p>
+                    <ul style="margin: 0 0 16px 18px; padding: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+                        <li>Secure username / email credential matching.</li>
+                        <li>Constant-time timing attack defense in <code>password_verify()</code>.</li>
+                        <li>Safe error messaging on failed attempts.</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="login.php" class="card-link-btn" style="background: #0f766e; width: 100%; box-sizing: border-box;">
+                        Open Login Verifier &rarr;
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #ede9fe; color: #5b21b6;">Post-Lab Work Submission</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: var(--navy); padding: 0;">
+                        Automated Test Suite &amp; Report
+                    </h3>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; margin-bottom: 14px;">
+                        Interactive test harness that executes live database transactions to validate:
+                    </p>
+                    <ul style="margin: 0 0 16px 18px; padding: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6;">
+                        <li><strong>Case 1:</strong> Valid registration insertion with password hash.</li>
+                        <li><strong>Case 2:</strong> Duplicate email collision rejection.</li>
+                        <li><strong>Case 3:</strong> Duplicate username collision rejection.</li>
+                        <li><strong>Case 4:</strong> Invalid input validation rejection.</li>
+                        </ul>
+                </div>
+                <div>
+                    <a href="register.php#tests" onclick="document.querySelector('[data-tab=\'tab-tests\']')?.click()" class="card-link-btn" style="background: #475569; width: 100%; box-sizing: border-box;">
+                        Run Test Suite &amp; Print Report &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <h3 style="margin-top: 44px; margin-bottom: 18px; font-size: 1.35rem; color: var(--navy); font-family: 'Outfit', sans-serif;">
+            Integrated StudentHub Modules (Previous Practicals)
+        </h3>
+        <div class="practicals-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #e0f2fe; color: #0369a1;">Practical 8</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.15rem; color: var(--navy);">MySQL, 3NF Schema &amp; PDO Prepared Statements</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                        Relational schema (<code>students</code>, <code>events</code>, <code>registrations</code>), secure PDO abstraction, native prepared statements.
+                    </p>
+                </div>
+                <div>
+                    <a href="practical8_test.php" class="card-link-btn" style="background: #0284c7; width: 100%; box-sizing: border-box;">Open Practical 8 Demo &rarr;</a>
+                </div>
+            </div>
+
+            
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #fef3c7; color: #92400e;">Practical 7</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.15rem; color: var(--navy);">Form Processing &amp; JSON Storage</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                        Server-side form sanitization, duplicate checks, and atomic JSON persistence with records viewer (<code>view_records.php</code>).
+                    </p>
+                </div>
+                <div>
+                    <a href="practical7_register.php" class="card-link-btn" style="background: #d97706; width: 100%; box-sizing: border-box;">Open Practical 7 &rarr;</a>
+                </div>
+            </div>
+
+            
+            <div class="practical-card">
+                <div>
+                    <span class="practical-badge" style="background: #f1f5f9; color: #475569;">Practical 6</span>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.15rem; color: var(--navy);">AJAX &amp; Client Data Rendering</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                        Dynamic asynchronous content fetching via Fetch API, client-side filtering, sorting, pagination, and DOM injection.
+                    </p>
+                </div>
+                <div>
+                    <a href="practical6.html" class="card-link-btn" style="background: #475569; width: 100%; box-sizing: border-box;">Open Practical 6 &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div style="margin-top: 36px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1.5px dashed var(--line); font-size: 0.92rem;">
+            <h4 style="margin: 0 0 8px 0; color: var(--navy);">Practical 9 Submission Checklist:</h4>
+            <ol style="margin: 0 0 0 20px; padding: 0; line-height: 1.6;">
+                <li>Ensure MySQL is started in XAMPP, then run <a href="db_setup.php"><code>db_setup.php</code></a> to initialize <code>studenthub_db</code>.</li>
+                <li>Open <a href="register.php"><code>register.php</code></a>, fill out the form, and observe the live duplicate indicators and password strength bar.</li>
+                <li>Submit the form to verify that the account is inserted and the 60-character Bcrypt hash is saved in table <code>users</code>.</li>
+                <li>Switch to the <strong>Automated Test Suite &amp; Report</strong> tab in <code>register.php</code>, click <strong>"Run Automated Test Cases"</strong>, and print the test report for your lab manual.</li>
+                </ol>
+        </div>
+    </main>
+
+</body>
+</html>

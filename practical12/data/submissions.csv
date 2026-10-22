@@ -1,0 +1,5 @@
+id,timestamp,full_name,enrollment_id,email,mobile,course,year,gender,dob,address
+STU_6533a101,"2026-10-21 10:15:20","Aarav Sharma",21BCE1001,aarav.sharma@univ.edu,9876543210,"Computer Science",3,Male,2003-05-14,"42 Park Street, Mumbai"
+STU_6533a202,"2026-10-21 11:30:45","Priya Patel",22BIT2045,priya.patel@univ.edu,9823456789,"Information Technology",2,Female,2004-09-21,"15 Lotus Avenue, Ahmedabad"
+STU_6533a303,"2026-10-21 12:05:10","Rohan Gupta",20BEC3012,rohan.gupta@univ.edu,9711223344,Electronics,4,Male,2002-12-03,"78 MG Road, Bengaluru"
+STU_6ad8a31274bb6,"2026-10-21 13:33:38","Test Integration User",25INT2641,integration_4452@univ.edu,9876543210,"Computer Science",2,Male,,

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Web Development Workshop",
+    "category": "Workshop",
+    "date": "2026-11-05",
+    "venue": "Computer Lab 1",
+    "description": "Learn HTML, CSS and JavaScript basics."
+  },
+  {
+    "id": 2,
+    "title": "Annual Sports Meet",
+    "category": "Sports",
+    "date": "2026-11-12",
+    "venue": "College Ground",
+    "description": "Inter-department sports competitions."
+  },
+  {
+    "id": 3,
+    "title": "Tech Quiz",
+    "category": "Competition",
+    "date": "2026-11-18",
+    "venue": "Seminar Hall",
+    "description": "Test your technology knowledge."
+  },
+  {
+    "id": 4,
+    "title": "Project Exhibition",
+    "category": "Academic",
+    "date": "2026-11-22",
+    "venue": "Main Auditorium",
+    "description": "Showcase student projects."
+  },
+  {
+    "id": 5,
+    "title": "Coding Contest",
+    "category": "Competition",
+    "date": "2026-11-27",
+    "venue": "Computer Lab 2",
+    "description": "Solve programming challenges."
+  },
+  {
+    "id": 6,
+    "title": "Career Guidance Session",
+    "category": "Seminar",
+    "date": "2026-12-02",
+    "venue": "Seminar Hall",
+    "description": "Explore career options after graduation."
+  },
+  {
+    "id": 7,
+    "title": "Cyber Safety Talk",
+    "category": "Seminar",
+    "date": "2026-12-04",
+    "venue": "Room 204",
+    "description": "Learn safe online practices."
+  },
+  {
+    "id": 8,
+    "title": "Robotics Demo",
+    "category": "Workshop",
+    "date": "2026-12-08",
+    "venue": "Innovation Lab",
+    "description": "Introduction to robotics."
+  },
+  {
+    "id": 9,
+    "title": "Cultural Fest",
+    "category": "Cultural",
+    "date": "2026-12-12",
+    "venue": "College Ground",
+    "description": "Music, dance and cultural activities."
+  },
+  {
+    "id": 10,
+    "title": "Library Orientation",
+    "category": "Academic",
+    "date": "2026-12-15",
+    "venue": "Central Library",
+    "description": "Discover library resources."
+  },
+  {
+    "id": 11,
+    "title": "Hackathon",
+    "category": "Competition",
+    "date": "2026-12-18",
+    "venue": "Innovation Lab",
+    "description": "Build a solution in teams."
+  },
+  {
+    "id": 12,
+    "title": "Alumni Meet",
+    "category": "Cultural",
+    "date": "2026-12-20",
+    "venue": "Main Auditorium",
+    "description": "Meet alumni and hear their experiences."
+  },
+  {
+    "id": 13,
+    "title": "Database Workshop",
+    "category": "Workshop",
+    "date": "2027-01-08",
+    "venue": "Computer Lab 1",
+    "description": "Practice SQL and database design."
+  },
+  {
+    "id": 14,
+    "title": "Resume Building",
+    "category": "Seminar",
+    "date": "2027-01-12",
+    "venue": "Placement Cell",
+    "description": "Create a clear and effective resume."
+  },
+  {
+    "id": 15,
+    "title": "Science Day",
+    "category": "Academic",
+    "date": "2027-02-28",
+    "venue": "Main Auditorium",
+    "description": "Celebrate science with student exhibits."
+  }
+]

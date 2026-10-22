@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Hub | JSON Data Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="practical6.css">
+  <script type="module" src="js/practical6.js"></script>
+</head>
+<body>
+  <header class="p6-header">
+    <h1>Student Hub Portal</h1>
+    <p>Practical 6: JSON Data Explorer</p>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+      <a href="practical6.html" aria-current="page">Explore Data</a>
+    </nav>
+  </header>
+  <main class="p6-main">
+    <section class="p6-intro">
+      <h2>Explore Student Hub Data</h2>
+      <p>Events, student profiles and FAQs are loaded from external JSON files with the Fetch API.</p>
+    </section>
+    <section class="p6-controls" aria-label="Search and filter controls">
+      <div class="p6-field">
+        <label for="dataset">Choose data</label>
+        <select id="dataset">
+          <option value="events">Events</option>
+          <option value="students">Students</option>
+          <option value="faqs">FAQs</option>
+        </select>
+      </div>
+      <div class="p6-field">
+        <label for="search">Search</label>
+        <input id="search" type="search" placeholder="Search records..." autocomplete="off">
+      </div>
+      <div class="p6-field">
+        <label for="filter">Filter by category</label>
+        <select id="filter"><option value="">All categories</option></select>
+      </div>
+      <div class="p6-field">
+        <label for="sort">Sort by</label>
+        <select id="sort">
+          <option value="default">Default order</option>
+          <option value="asc">Name / title A–Z</option>
+          <option value="desc">Name / title Z–A</option>
+        </select>
+      </div>
+      <div class="p6-field">
+        <label for="pageSize">Records per page</label>
+        <select id="pageSize">
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+    </section>
+    <p id="status" class="p6-status" role="status" aria-live="polite">Loading data...</p>
+    <section id="results" class="p6-results" aria-label="Loaded records"></section>
+    <div class="p6-pagination">
+      <button id="previous" type="button" disabled>Previous</button>
+      <span id="pageInfo" aria-live="polite">Page 1</span>
+      <button id="next" type="button" disabled>Next</button>
+    </div>
+    <p class="p6-note">If loading fails when opened directly, run this folder with VS Code Live Server so the browser can fetch the JSON files.</p>
+  </main>
+  <footer class="p6-footer">© 2026 Student Hub Portal</footer>
+</body>
+</html>
