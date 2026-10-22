@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h2>Student Hub Login</h2>
+    <form id="loginForm" class="auth-form login-form" novalidate>
+        <p>Sign in with your student account.</p>
+        <div class="field">
+            <label for="loginId">Student ID or Email</label>
+            <input id="loginId" name="loginId" type="text" autocomplete="username" placeholder="Enter Student ID or email" required aria-describedby="loginIdError">
+            <small class="error" id="loginIdError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="password-row">
+                <input id="loginPassword" name="loginPassword" type="password" autocomplete="current-password" placeholder="Enter password" required aria-describedby="loginPasswordError">
+                <button type="button" class="show-password" data-target="loginPassword" aria-label="Show password">Show</button>
+            </div>
+            <small class="error" id="loginPasswordError" aria-live="polite"></small>
+        </div>
+        <div id="loginMessage" class="form-message" role="status" aria-live="polite"></div>
+        <div class="form-actions">
+            <button type="submit">Login</button>
+            <button type="reset" class="secondary-button">Clear</button>
+        </div>
+        <p class="auth-link">New student? <a href="register.html">Create an account</a></p>
+        <p class="auth-link"><a href="#" id="forgotLink">Forgot Password?</a></p>
+    </form>
+</body>
+</html>

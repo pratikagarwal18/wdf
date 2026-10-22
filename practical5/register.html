@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Student Portal</h1>
+    <hr>
+    <h2>Student Registration Form</h2>
+    <form id="registerForm" class="auth-form" novalidate>
+        <p>Fill in your details to create a student account.</p>
+        <div class="field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Enter your full name" required aria-describedby="nameError">
+            <small class="error" id="nameError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="enrollment">Enrollment ID</label>
+            <input id="enrollment" name="enrollment" type="text" autocomplete="off" placeholder="Enter enrollment ID" required aria-describedby="enrollmentError">
+            <small class="error" id="enrollmentError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-describedby="emailError">
+            <small class="error" id="emailError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="10-digit mobile number" required aria-describedby="mobileError">
+            <small class="error" id="mobileError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <div class="password-row">
+                <input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" required aria-describedby="passwordError strengthText">
+                <button type="button" class="show-password" data-target="password" aria-label="Show password">Show</button>
+            </div>
+            <div class="strength-track" aria-hidden="true"><div id="strengthBar"></div></div>
+            <small id="strengthText" class="strength-text">Password strength: not entered</small>
+            <small class="error" id="passwordError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter password" required aria-describedby="confirmError">
+            <small class="error" id="confirmError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="course">Course / Branch</label>
+            <select id="course" name="course" required aria-describedby="courseError">
+                <option value="">Select course</option>
+                <option>Computer Science</option>
+                <option>Information Technology</option>
+                <option>Electronics</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+            </select>
+            <small class="error" id="courseError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+            <label for="year">Year of Study</label>
+            <select id="year" name="year" required aria-describedby="yearError">
+                <option value="">Select year</option>
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+                <option value="4">Fourth Year</option>
+            </select>
+            <small class="error" id="yearError" aria-live="polite"></small>
+        </div>
+        <fieldset class="field gender-field" aria-describedby="genderError">
+            <legend>Gender</legend>
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+            <small class="error" id="genderError" aria-live="polite"></small>
+        </fieldset>
+        <div class="field">
+            <label for="dob">Date of Birth <span class="optional">(optional)</span></label>
+            <input id="dob" name="dob" type="date" autocomplete="bday">
+        </div>
+        <div class="field">
+            <label for="address">Address <span class="optional">(optional)</span></label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter your address"></textarea>
+        </div>
+        <div class="field terms-field">
+            <label><input id="terms" name="terms" type="checkbox" required aria-describedby="termsError"> I accept the terms and conditions.</label>
+            <small class="error" id="termsError" aria-live="polite"></small>
+        </div>
+        <div id="registerMessage" class="form-message" role="status" aria-live="polite"></div>
+        <div class="form-actions">
+            <button type="submit">Register</button>
+            <button type="reset" class="secondary-button">Clear</button>
+        </div>
+        <p class="auth-link">Already have an account? <a href="login.html">Login here</a></p>
+    </form>
+    <hr>
+    <p>© 2026 Student Portal.</p>
+</body>
+</html>
